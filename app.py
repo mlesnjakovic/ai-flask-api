@@ -4,10 +4,6 @@ import joblib
 import numpy as np
 import pandas as pd
 
-app = Flask(__name__)
-CORS(app)  # 🚀 omogući zahtjeve iz browsera
-
-
 FEATURE_ORDER = [
     'AI Adoption Rate (%)',
     'AI-Generated Content Volume (TBs per year)',
@@ -18,6 +14,8 @@ FEATURE_ORDER = [
 ]
 
 app = Flask(__name__)
+CORS(app)
+
 model = joblib.load("ai_revenue_model.pkl")
 
 print("✅ Flask API je pokrenut.")
